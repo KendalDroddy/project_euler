@@ -6,7 +6,7 @@
   *Kendal Droddy
   *
   *Computes the Fib sequence up to four million
-  *Tracks all even numbers of the sequence
+  *Tracks all even numbers of the sequence 4,613,732
   */
 
 #include <stdio.h>
@@ -14,26 +14,21 @@
   int main(void)
   {
     //declare variables
-    int counter = 0;
+    int i = 1;
+    int j = 1;
+    int fib = 1;
     int evens = 0;
 
-    for (int i = 1; i <= 4000000 ; i += counter)
+    while(fib < 4000000)
     {
-      if (i % 2 == 0)
+      if (fib % 2 == 0)
       {
-        evens += i;
-        counter+= i;
+        evens += fib;
       }
-      else if (counter % 2 == 0)
-      {
-        evens += counter;
-        counter += i;
-      }
-      else
-      {
-      counter += i;
-      }
-
-      printf("%i, %i, %i\n", i, evens, counter);
+      fib = i + j;
+      i = j;
+      j = fib;
     }
+      printf("%i\n", evens);
+      return 0;
   }
